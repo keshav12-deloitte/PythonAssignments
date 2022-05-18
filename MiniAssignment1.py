@@ -2,20 +2,18 @@ class StringClass:
     str = ""
 
     def __init__(self):
-        self.str = input("enter the string: ")
+        self.string1 = input("enter the string: ")
 
     def strlen(self):
-        print(len(self.str))
+        print(len(self.string1))
 
     def strToChar(self):
         str1 = []
-        for i in range(0, len(self.str)):
+        for i in range(0, len(self.string1)):
             # print(self.str[i])
-            str1.append(self.str[i])
+            str1.append(self.string1[i])
 
         print(str1)
 
 
-obj = StringClass()
-obj.strlen()
-obj.strToChar()
+
