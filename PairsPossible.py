@@ -1,25 +1,16 @@
-class PairsPossible:
-
-    def __init__(self):
-
-        self.name = input("enter the string to be form pairs: ")
-
-    def formingPairs2(self):
-        self.newlst = [1, 2]
-        self.finallst=[]
-        for i in range(1, len(self.name)):
-            self.newlst[0] = self.name[i - 1]
-            for j in range(0, len(self.name)):
-                self.newlst[1] = self.name[j]
-                self.finallst.insert(self.newlst)
-
-                # print(self.newlst)
-        print(self.finallst)
+from MiniAssignment1 import StringClass
 
 
+class PairsPossible(StringClass):
+
+    def possible(self):
+
+        self.string2=input("enter the string")
+        self.result = [(self.string1[i], self.string2[j]) for i in range(0, len(self.string1)) for j in range(0, len(self.string2))]
+        print(self.result)
 
 
-
-
-obj1 = PairsPossible()
-obj1.formingPairs2()
+# obj3 = PairsPossible()
+# obj3.strlen()
+# obj3.strToChar()
+# obj3.possible()
