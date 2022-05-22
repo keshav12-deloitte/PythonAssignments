@@ -12,7 +12,7 @@ class SearchCommonElements(PairsPossible):
                     if(self.string1[i] == self.string2[j] and self.string1[i] == self.string3[k]):
                         common.append(self.string1[i])
 
-        print(common)
+        print(set(common))
 
 
 
