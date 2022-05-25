@@ -100,15 +100,19 @@ class UserDetails(AdminOfBookMyShow):
                 print(f"Remaining Seats is {sh1.cell(choiceByUser + 1, 13).value}")
                 totalTicketsToBeBooked = int(input("Enter the number of tickets to be Booked: "))
                 ticketsAvailable = int(sh1.cell(choiceByUser + 1, 13).value)
+                if ticketsAvailable > totalTicketsToBeBooked:
+                    print("You have booked your tickets successfully")
+                elif totalTicketsToBeBooked > ticketsAvailable:
+                    raise Exception("!!! You Cannot book Tickets Than Available Tickets Please Book Again!!!")
                 sh1.cell(choiceByUser + 1, 13, value=ticketsAvailable - totalTicketsToBeBooked)
-                print(sh1.cell(choiceByUser + 1, 13).value)
+                print("Remaining Seats Available are :{}".format(sh1.cell(choiceByUser + 1, 13).value))
                 print("***** Thank You for Booking Tickets *****")
                 wb.save("MoviesInfo.xlsx")
             elif (userTicketChoice == 2):
                 ticketsTobeCancelled = int(input("enter the Number of tickets to be Cancelled: "))
                 ticketsAvailable = sh1.cell(choiceByUser + 1, 13).value
                 sh1.cell(choiceByUser + 1, 13, value=ticketsAvailable + ticketsTobeCancelled)
-                print(sh1.cell(choiceByUser + 1, 13).value)
+                print("Total Number of Seats Available After Cancellation :{}".format(sh1.cell(choiceByUser + 1, 13).value))
                 wb.save("MoviesInfo.xlsx")
             elif (userTicketChoice == 3):
                 row, col, sh1, wb = workbook("userreviews.xlsx", "Sheet1")
